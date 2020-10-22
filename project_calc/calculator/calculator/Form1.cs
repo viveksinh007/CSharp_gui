@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,9 +27,9 @@ namespace calculator
 
         }
 
-        private void textBox1_KeyPress(object sender , KeyPressEventArgs e)
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -46,61 +46,61 @@ namespace calculator
         //for number 0
         private void button6_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "0";
+            textBox1.Text += "0";
         }
 
         //for number 1
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "1";
+            textBox1.Text += "1";
         }
 
         //for number 2
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "2";
+            textBox1.Text += "2";
         }
 
         //for number 3
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "3";
+            textBox1.Text += "3";
         }
 
         //for number 4
         private void button12_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "4";
+            textBox1.Text += "4";
         }
 
         //for number 5
         private void button11_Click_1(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "5";
+            textBox1.Text += "5";
         }
 
         //for number 6
         private void button10_Click_1(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "6";
+            textBox1.Text += "6";
         }
 
         //for number 7
         private void button16_Click_1(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "7";
+            textBox1.Text += "7";
         }
 
         //for number 8
         private void button15_Click_1(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "8";
+            textBox1.Text += "8";
         }
 
         //for number 9
         private void button14_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "9";
+            textBox1.Text += "9";
         }
 
         //for buttons like  . , +/- -------------------------------------------------------------------------
@@ -108,7 +108,8 @@ namespace calculator
         //for number .
         private void button7_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(" ( . ) Pressed ");
+            //MessageBox.Show(" ( . ) Pressed ");
+            textBox1.Text += ".";
         }
 
         //for button +/-
@@ -166,8 +167,11 @@ namespace calculator
         private void button18_Click(object sender, EventArgs e)
         {
             temp = textBox1.Text;
-            temp = temp.Remove(temp.Length - 1);
-            textBox1.Text = temp;
+            if (temp.Length > 0)
+            {
+                temp = temp.Remove(temp.Length - 1);
+                textBox1.Text = temp;
+            }
         }
 
 
@@ -184,7 +188,7 @@ namespace calculator
             {
                 //here num1 = string before clicked operation
                 //num2 is hold the value of textbox when we clicked  ( = ) 
-                
+
 
                 if (op == "+") { textBox1.Text = Convert.ToString(double.Parse(num1) + double.Parse(num2)); }
                 if (op == "-") { textBox1.Text = Convert.ToString(double.Parse(num1) - double.Parse(num2)); }
