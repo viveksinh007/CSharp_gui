@@ -100,7 +100,7 @@ namespace calculator
         //for number .
         private void button7_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(" ( . ) Pressed ");
+           textBox1.Text = textBox1.Text + ".";
         }
 
         //for button +/-
@@ -158,8 +158,11 @@ namespace calculator
         private void button18_Click(object sender, EventArgs e)
         {
             temp = textBox1.Text;
-            temp = temp.Remove(temp.Length - 1);
-            textBox1.Text = temp;
+            if(temp.length > 0)
+            {
+                temp = temp.Remove(temp.Length - 1);
+                textBox1.Text = temp;
+            }
         }
 
 
